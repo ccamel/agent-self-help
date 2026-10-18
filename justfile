@@ -2,6 +2,19 @@
 default:
     @just --list
 
+# Apply available automatic fixes, then run all linters.
+fix: fix-markdown fix-nix
+    @just lint
+
+# Fix Markdown files.
+fix-markdown:
+    @markdownlint --fix "**/*.md"
+
+# Fix Nix antipatterns and formatting.
+fix-nix:
+    @statix fix .
+    @nixfmt flake.nix
+
 # Run all repository linters.
 lint: lint-gh-action lint-markdown lint-nix lint-yaml
 
