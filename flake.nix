@@ -29,6 +29,7 @@
               pkgs.commitlint
               pkgs.deadnix
               pkgs.git
+              pkgs.just
               pkgs.markdownlint-cli
               pkgs.marksman
               pkgs.nil
@@ -40,6 +41,7 @@
 
             shellHook = ''
               echo "Agent Self-Help development environment loaded"
+              echo "Run 'just' to see available recipes"
             '';
           };
         }
