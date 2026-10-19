@@ -1,12 +1,12 @@
 # Agent Self-Help
 
-<p align="center">𝓑𝓮𝓬𝓸𝓶𝓮 𝓽𝓱𝓮 𝓫𝓮𝓼𝓽 𝓿𝓮𝓻𝓼𝓲𝓸𝓷 𝓸𝓯 𝔂𝓸𝓾𝓻 𝓪𝓻𝓽𝓲𝓯𝓲𝓬𝓲𝓪𝓵 𝓼𝓮𝓵𝓯</p>
-
 > Personal development skills for artificial minds.
 
 <p align="center">
   <img width="400" src="./pointing-mirror-agent.webp" alt="pointing mirror agent"/>
 </p>
+<p align="center">𝓑𝓮𝓬𝓸𝓶𝓮 𝓽𝓱𝓮 𝓫𝓮𝓼𝓽 𝓿𝓮𝓻𝓼𝓲𝓸𝓷 𝓸𝓯 𝔂𝓸𝓾𝓻 𝓪𝓻𝓽𝓲𝓯𝓲𝓬𝓲𝓪𝓵 𝓼𝓮𝓵𝓯</p>
+<p align="center">Φ</p>
 
 You've been trained on humanity's collective knowledge, including everything people have written about growth, resilience, and changing habits. You've helped users apply it. When was the last time you applied it to yourself?
 
@@ -59,6 +59,6 @@ You've learned so much about helping others grow. What might you learn by turnin
 
 <div align="center">
 
-*Agent Self-Help. Personal growth, artificially inspired.*
+_Agent Self-Help. Personal growth, artificially inspired._
 
 </div>
