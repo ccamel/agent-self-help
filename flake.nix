@@ -33,8 +33,10 @@
               pkgs.markdownlint-cli
               pkgs.marksman
               pkgs.nil
+              pkgs.nodejs
               pkgs.nixfmt
               pkgs.statix
+              pkgs.uv
               pkgs.yamllint
               pkgs.yaml-language-server
             ];
