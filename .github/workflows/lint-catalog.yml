@@ -1,0 +1,48 @@
+name: Lint / Skill Catalog
+
+on:
+  workflow_call:
+
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lint-catalog.yml
+      - README.md
+      - flake.lock
+      - flake.nix
+      - justfile
+      - scripts/generate-skill-catalog.py
+      - skills/*/SKILL.md
+
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/lint-catalog.yml
+      - README.md
+      - flake.lock
+      - flake.nix
+      - justfile
+      - scripts/generate-skill-catalog.py
+      - skills/*/SKILL.md
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lint-catalog-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-catalog:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Nix
+        uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa # v23
+
+      - name: Check skill catalog
+        run: nix develop --command just lint-catalog
