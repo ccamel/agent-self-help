@@ -3,9 +3,15 @@ default:
     @just --list
 
 # Apply available automatic fixes, then run all linters.
-fix: fix-just fix-markdown fix-nix
+fix: fix-catalog fix-just fix-markdown fix-nix
     @just lint
 
+# Generate the README skill catalog from skill frontmatter.
+generate-catalog:
+    @python scripts/generate-skill-catalog.py
+
+# Fix the README skill catalog by regenerating it.
+fix-catalog: generate-catalog
 # Format the Just file.
 fix-just:
     @just --fmt
@@ -20,7 +26,11 @@ fix-nix:
     @nixfmt flake.nix
 
 # Run all repository linters.
-lint: lint-gh-action lint-just lint-markdown lint-nix lint-skills lint-yaml
+lint: lint-catalog lint-gh-action lint-just lint-markdown lint-nix lint-skills lint-yaml
+
+# Check that the README skill catalog is current.
+lint-catalog:
+    @python scripts/generate-skill-catalog.py --check
 
 # Lint GitHub Actions workflows.
 lint-gh-action:
@@ -32,6 +42,7 @@ lint-just:
 
 # Validate Agent Skills.
 lint-skills:
+    @python scripts/generate-skill-catalog.py --validate
     @for dir in skills/*/; do uvx --from git+https://github.com/agentskills/agentskills.git@69ef37e9424c0a7ea9dd2293b559e43ec8176379#subdirectory=skills-ref skills-ref validate "$dir"; done
     @npx skill-check@1.2.0 check --no-security-scan skills
 
