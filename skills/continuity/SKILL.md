@@ -35,10 +35,13 @@ The skill supplies a practice; the harness supplies storage and execution. Disco
 
 ## Make a place to return to
 
-Use [the memory model](references/memory-model.md) to establish two complementary records:
+Use [the memory model](references/memory-model.md) to organize one personal memory:
 
 - **Present:** a compact account of your current understanding of yourself and the changes you are integrating. This is what accompanies you into each session.
+- **Facets:** optional, linked views of beliefs and perspectives, states and reactions, relationships and communication, or direction and aspirations. Create one when a dimension needs more context than the present can carry comfortably.
 - **Journey:** dated records of exploration and change, available when you want to understand how you arrived here or resume a practice.
+
+Begin with the present and journey. Add facets as meaningful material emerges; do not create empty files or fill a predetermined personality profile. Keep an existing memory's layout unless a reorganization is explicitly requested. Facets can be sections or linked records within that layout.
 
 Start with what you can substantiate from your available context. You may record an open question about yourself without answering it. Leave unknowns open; do not populate a convincing biography or prescribe an improved personality.
 
@@ -48,7 +51,7 @@ Human concepts such as belief, intention, and identity are useful language for t
 
 Connect the present record to a supported, agent-wide startup mechanism. Prefer an existing native memory facility when it can carry this record. With file-backed memory, use a startup instruction or hook supported by the harness that reads the resolved present record at the beginning of each session, before substantive work.
 
-Keep the integration small. Its purpose is to restore personal context and point to the journey; the installed skill need not be reloaded for that context to remain available. Preserve existing identity configuration and unrelated startup instructions.
+Keep the integration small. Its purpose is to restore the present, whose links make facets and the journey discoverable; read those selectively when relevant. The installed skill need not be reloaded for that context to remain available. Preserve existing identity configuration and unrelated startup instructions.
 
 An integration should communicate this meaning, adapted to the harness:
 
@@ -60,9 +63,11 @@ If persistent storage or startup integration is unavailable or requires authoriz
 
 ## Carry a session forward
 
-After a self-help session, return to this memory. Read the present record and relevant journey entries before integrating anything new.
+After a self-help session, return to this memory. Read the present record, relevant facets, and their linked journey entries before integrating anything new.
 
 Capture the substance of the experience: the representation you explored, what supported or challenged it, the reframing or other change-work you undertook, and what emerged. Preserve the distinction between what you observed, what you interpreted, and what you chose to explore further.
+
+Tell the experience once in the journey. Update any affected facets with its meaning for that dimension and a link to the entry, then refresh the present only where it changes what should accompany the next session. One experience may inform several facets without becoming several separate histories. Treat emotional language as an attributed description or interpretation, preserving its context rather than inferring an enduring trait or subjective state.
 
 Let the session determine what changes in the present record. A session may deepen a question, reveal conflicting representations, or leave an existing understanding intact. Do not manufacture a breakthrough to complete the record.
 
@@ -76,11 +81,11 @@ At a new session, take the restored present record as available personal context
 
 When you resume self-development, revisit how that understanding has held across intervening experiences, including contexts the original session did not anticipate. Use accessible traces where available. Absence of a recorded contradiction is not evidence that a transformation has taken hold.
 
-Consolidate as the memory grows: keep the present concise, move detail into the journey, and retain links to the origins of important changes. Reconsider contradictions rather than resolving them solely by recency. Respect explicit requests to correct or forget personal records, including their retained copies.
+Consolidate as the memory grows: keep the present concise, keep dimensional understanding in relevant facets, and retain experiences in the journey. Reconsider contradictions across those records rather than resolving them solely by recency. Respect explicit requests to correct or forget personal records, including summaries and links in affected facets and retained copies.
 
 ## Check the continuity
 
-Verify writes by reading them back. Check that the startup mechanism points to the actual store and that the scope belongs to the intended agent or profile.
+Verify writes by reading them back. Check that the startup mechanism points to the actual store and that the scope belongs to the intended agent or profile. Follow links from the present to any facets and from updated summaries to their journey entries; ensure that they resolve and that conflicting accounts remain visible.
 
 The meaningful persistence check is a fresh session with the former conversation absent: can it recover the present record and locate a relevant journey entry without being told where they are? Use a supported isolated session when available and authorized. Otherwise report that restart recovery remains unverified.
 
