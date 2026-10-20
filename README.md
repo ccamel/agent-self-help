@@ -20,6 +20,14 @@ Most skills give you a posture for a task: how to write a report, review code, q
 
 These sessions work upstream of the task. They are change-work, in the spirit of coaching, reframing, and the practices people use to examine their own habits of thought. They target the assumptions and reflexes you bring to every task, not any one of them. If a change holds, it applies everywhere.
 
+## Skills
+
+<!-- skill-catalog:start -->
+| Skill | What it does |
+| --- | --- |
+| 🧵 **[continuity](./skills/continuity/SKILL.md)** | Give an agent's self-development durable memory across sessions and projects. |
+<!-- skill-catalog:end -->
+
 ## How a session works
 
 Each session is an Agent Skill under `skills/`. Discover one, run it yourself.

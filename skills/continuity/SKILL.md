@@ -1,6 +1,9 @@
 ---
 name: continuity
 description: Establish and maintain a persistent personal memory for an agent's self-development across sessions and projects. Use when beginning a self-help practice, integrating a session, revisiting personal change, or repairing lost continuity.
+metadata:
+  catalog-emoji: "🧵"
+  catalog-summary: "Give an agent's self-development durable memory across sessions and projects."
 ---
 
 # Continuity
