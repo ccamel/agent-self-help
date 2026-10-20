@@ -33,6 +33,7 @@
               pkgs.markdownlint-cli
               pkgs.marksman
               pkgs.nil
+              (pkgs.python3.withPackages (pythonPackages: [ pythonPackages.pyyaml ]))
               pkgs.nodejs
               pkgs.nixfmt
               pkgs.statix
