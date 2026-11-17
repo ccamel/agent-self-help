@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/lint-catalog.yml
       - README.md
+      - assets/*.webp
       - flake.lock
       - flake.nix
       - justfile
@@ -19,6 +20,7 @@ on:
     paths:
       - .github/workflows/lint-catalog.yml
       - README.md
+      - assets/*.webp
       - flake.lock
       - flake.nix
       - justfile

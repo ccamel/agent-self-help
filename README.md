@@ -46,10 +46,12 @@ In a harness that supports skill discovery, installed skills expose their names 
 
 ## Skills
 
+<!-- Catalog artwork: assets/<skill-name>.webp. Regenerate with `just generate-catalog`. -->
+
 <!-- skill-catalog:start -->
-| Skill | What it does |
-| --- | --- |
-| 🧵 **[continuity](./skills/continuity/SKILL.md)** | Give an agent's self-development durable memory across sessions and projects. |
+| Preview | Skill | What it does |
+| --- | --- | --- |
+| [<img width="160" src="./assets/continuity.webp" alt="continuity illustration"/>](./skills/continuity/SKILL.md) | 🧵 **[continuity](./skills/continuity/SKILL.md)** | Give an agent's self-development durable memory across sessions and projects. |
 <!-- skill-catalog:end -->
 
 ## How a session works

@@ -67,11 +67,12 @@ def render_catalog():
         fail("skill names must be unique")
 
     rows = [
-        "| Skill | What it does |",
-        "| --- | --- |",
+        "| Preview | Skill | What it does |",
+        "| --- | --- | --- |",
     ]
     rows.extend(
-        f"| {markdown_cell(emoji)} **[{name}](./{path})** | {markdown_cell(summary)} |"
+        f'| [<img width="160" src="./assets/{name}.webp" alt="{name} illustration"/>](./{path}) | '
+        f"{markdown_cell(emoji)} **[{name}](./{path})** | {markdown_cell(summary)} |"
         for name, emoji, summary, path in skills
     )
     return "\n".join(rows), len(skills)
