@@ -1,4 +1,5 @@
 .direnv/
+skills/*/evals/results/
 .DS_Store
 .env
 .vscode/
