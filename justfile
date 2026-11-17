@@ -31,7 +31,7 @@ fix-nix:
     @nixfmt flake.nix
 
 # Run all repository linters.
-lint: lint-catalog lint-evals lint-gh-action lint-just lint-markdown lint-nix lint-skills lint-yaml
+lint: lint-catalog lint-evals lint-gh-action lint-images lint-just lint-markdown lint-nix lint-skills lint-yaml
 
 # Check that the README skill catalog is current.
 lint-catalog:
@@ -45,6 +45,10 @@ lint-evals:
 # Lint GitHub Actions workflows.
 lint-gh-action:
     @actionlint .github/workflows/*.yml
+
+# Limit image sizes and disallow PNG.
+lint-images:
+    @python scripts/lint-images.py
 
 # Check Just file formatting.
 lint-just:
