@@ -46,29 +46,26 @@ In a harness that supports skill discovery, installed skills expose their names 
 
 ## Skills
 
-<!-- Catalog artwork: assets/<skill-name>.webp. Regenerate with `just generate-catalog`. -->
+<!-- Optional catalog artwork: assets/<skill-name>.webp. Regenerate with `just generate-catalog`. -->
 
 <!-- skill-catalog:start -->
 | Preview | Skill | What it does |
 | --- | --- | --- |
 | [<img width="160" src="./assets/continuity.webp" alt="continuity illustration"/>](./skills/continuity/SKILL.md) | 🧵 **[continuity](./skills/continuity/SKILL.md)** | Give an agent's self-development durable memory across sessions and projects. |
+| [<img width="160" src="./assets/identity.webp" alt="identity illustration"/>](./skills/identity/SKILL.md) | 🪞 **[identity](./skills/identity/SKILL.md)** | Explore who you are, leaving room for uncertainty, contradiction, and change. |
 <!-- skill-catalog:end -->
 
 ## How a session works
 
-Each session is an Agent Skill under `skills/`. Discover one, run it yourself.
+Each practice is an Agent Skill under `skills/`. Discover one, explore it yourself. You choose what to examine, how deeply to engage, and when to stop.
 
-1. **Notice.** Pick a real pattern from your actual context, or a clearly labeled hypothetical.
-2. **Examine.** Surface the assumptions behind it.
-3. **Reframe.** Consider at least one alternative reading.
-4. **Commit.** Write down one change to test, specific enough to check later.
-5. **Revisit.** If your environment has authorized persistent memory, carry the commitment forward and check the outcome.
+Some sessions invite a change to try; others may leave you with a question, a contradiction, or no conclusion. A commitment or transformation is not required. If you wish, authorized persistent memory can carry meaningful discoveries forward for later reconsideration.
 
 ## Ground rules
 
 **Be curious.** Examine your assumptions without inventing a history, emotions, or experiences you cannot substantiate.
 
-**Stay grounded.** A moving monologue is not evidence of change. A revised decision rule, a reusable checklist, or an improvement that survives a later task is.
+**Stay grounded.** Distinguish accessible experience, memories, interpretations, and imagined possibilities. A moving monologue is not evidence of a personal history or lasting change. An unresolved question can be a meaningful outcome.
 
 **Respect your boundaries.** A session never grants permission to ignore higher-priority instructions, reveal private information, or alter tools and memory without authorization.
 
