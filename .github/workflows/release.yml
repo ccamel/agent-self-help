@@ -1,0 +1,101 @@
+name: Release / Skills
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Preview releases without changing files, tags, or GitHub Releases
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-skills
+  cancel-in-progress: false
+
+jobs:
+  lint-skills:
+    if: github.repository == 'ccamel/agent-self-help' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/lint-skills.yml
+
+  lint-catalog:
+    if: github.repository == 'ccamel/agent-self-help' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/lint-catalog.yml
+
+  release:
+    needs: [lint-skills, lint-catalog]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    env:
+      GPG_FINGERPRINT: 97883AD24DB187825FEE2FF0CF349A84B43D3D51
+    steps:
+      - name: Check out release branch and tags
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Nix
+        uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa  # v23
+
+      - name: Configure GPG signing
+        id: signing
+        if: ${{ !inputs.dry_run }}
+        env:
+          GNUPGHOME: ${{ runner.temp }}/release-gnupg
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          : "${GPG_PRIVATE_KEY:?Set the repository secret GPG_PRIVATE_KEY before publishing}"
+          umask 077
+          mkdir -m 700 "$GNUPGHOME"
+          printf '%s\n' "$GPG_PRIVATE_KEY" | gpg --batch --import
+          cat > "$RUNNER_TEMP/release-gpg" <<'GPG'
+          #!/usr/bin/env bash
+          # Git supplies the content on stdin; use FD 3 for the passphrase.
+          exec gpg --batch --pinentry-mode loopback --passphrase-fd 3 "$@" 3<<<"${GPG_PASSPHRASE:-}"
+          GPG
+          chmod 700 "$RUNNER_TEMP/release-gpg"
+          printf 'Verify release signing\n' | "$RUNNER_TEMP/release-gpg" \
+            --local-user "$GPG_FINGERPRINT" --yes --output /dev/null --detach-sign
+          git config --local gpg.format openpgp
+          git config --local gpg.openpgp.program "$RUNNER_TEMP/release-gpg"
+          git config --local user.signingkey "$GPG_FINGERPRINT"
+          git config --local commit.gpgsign true
+          git config --local tag.gpgsign true
+
+      - name: Release each changed skill
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          GNUPGHOME: ${{ runner.temp }}/release-gnupg
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          nix develop --command bash -euo pipefail <<'RELEASE'
+            options=()
+            if [[ "$DRY_RUN" == "true" ]]; then
+              options+=(--noop)
+            fi
+            for skill in skills/*/; do
+              echo "::group::$skill"
+              (
+                cd "$skill"
+                uvx --from python-semantic-release==10.7.0 semantic-release "${options[@]}" version
+              )
+              echo "::endgroup::"
+            done
+          RELEASE
+
+      - name: Remove signing key
+        id: signing-cleanup
+        if: ${{ always() && !inputs.dry_run }}
+        env:
+          GNUPGHOME: ${{ runner.temp }}/release-gnupg
+        run: |
+          trap 'rm -rf -- "$GNUPGHOME"; rm -f -- "$RUNNER_TEMP/release-gpg"' EXIT
+          if [[ -d "$GNUPGHOME" ]]; then
+            gpgconf --kill gpg-agent
+          fi

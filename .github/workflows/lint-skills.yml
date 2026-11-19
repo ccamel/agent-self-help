@@ -7,20 +7,24 @@ on:
     branches: [main]
     paths:
       - .github/workflows/lint-skills.yml
+      - .github/workflows/release.yml
       - flake.lock
       - flake.nix
       - justfile
       - scripts/generate-skill-catalog.py
+      - scripts/test-skill-releases.py
       - skills/**
 
   pull_request:
     branches: [main]
     paths:
       - .github/workflows/lint-skills.yml
+      - .github/workflows/release.yml
       - flake.lock
       - flake.nix
       - justfile
       - scripts/generate-skill-catalog.py
+      - scripts/test-skill-releases.py
       - skills/**
 
 permissions:

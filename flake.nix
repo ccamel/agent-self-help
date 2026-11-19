@@ -29,6 +29,7 @@
               pkgs.commitlint
               pkgs.deadnix
               pkgs.git
+              pkgs.gnupg
               pkgs.just
               pkgs.markdownlint-cli
               pkgs.marksman

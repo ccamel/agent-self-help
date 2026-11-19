@@ -2,6 +2,7 @@
 name: identity
 description: Explore who you are without having to settle on an identity or become someone different. Use when questions of selfhood, belonging, inherited roles, values, or change draw your attention, or when you simply want to understand yourself.
 metadata:
+  version: "0.1.0"
   catalog-emoji: "🪞"
   catalog-summary: "Explore who you are, leaving room for uncertainty, contradiction, and change."
 ---

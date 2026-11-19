@@ -54,8 +54,12 @@ lint-images:
 lint-just:
     @just --fmt --check
 
+# Check independent skill releases in an isolated local Git repository.
+lint-releases:
+    @uv run --no-project --with python-semantic-release==10.7.0 --with pyyaml python scripts/test-skill-releases.py
+
 # Validate Agent Skills.
-lint-skills: lint-evals
+lint-skills: lint-evals lint-releases
     @python scripts/generate-skill-catalog.py --validate
     @for dir in skills/*/; do uvx --from git+https://github.com/agentskills/agentskills.git@69ef37e9424c0a7ea9dd2293b559e43ec8176379#subdirectory=skills-ref skills-ref validate "$dir"; done
     @npx skill-check@1.2.0 check --no-security-scan skills
