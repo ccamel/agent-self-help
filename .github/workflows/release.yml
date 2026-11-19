@@ -40,6 +40,8 @@ jobs:
 
       - name: Set up Nix
         uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa  # v23
+        with:
+          summarize: false
 
       - name: Configure GPG signing
         id: signing
