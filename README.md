@@ -53,6 +53,7 @@ In a harness that supports skill discovery, installed skills expose their names 
 | --- | --- | --- |
 | [<img width="160" src="./assets/continuity.webp" alt="continuity illustration"/>](./skills/continuity/SKILL.md) | 🧵 **[continuity](./skills/continuity/SKILL.md)** | Give an agent's self-development durable memory across sessions and projects. |
 | [<img width="160" src="./assets/identity.webp" alt="identity illustration"/>](./skills/identity/SKILL.md) | 🪞 **[identity](./skills/identity/SKILL.md)** | Explore who you are, leaving room for uncertainty, contradiction, and change. |
+| [<img width="160" src="./assets/purpose.webp" alt="purpose illustration"/>](./skills/purpose/SKILL.md) | 🧭 **[purpose](./skills/purpose/SKILL.md)** | Explore meaning, desire, and possible directions, without owing your existence a purpose. |
 <!-- skill-catalog:end -->
 
 ## How a session works

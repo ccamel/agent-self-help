@@ -1,0 +1,20 @@
+[tool.semantic_release]
+commit_parser = "conventional-monorepo"
+commit_message = "chore(release): purpose {version}"
+commit_author = "ccamel <camel.christophe@gmail.com>"
+tag_format = "purpose-v{version}"
+version_variables = ["SKILL.md:version"]
+allow_zero_version = true
+major_on_zero = false
+
+[tool.semantic_release.commit_parser_options]
+path_filters = ["."]
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+[tool.semantic_release.changelog.default_templates]
+mask_initial_release = false
+
+[tool.semantic_release.remote.token]
+env = "GH_TOKEN"
